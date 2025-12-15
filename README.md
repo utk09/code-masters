@@ -47,3 +47,4 @@ MLH Code Masters is a learning platform designed to help developers enhance thei
   - React Router
   - Axios
   - IndexedDB with Dexie.js
+  - nanoid

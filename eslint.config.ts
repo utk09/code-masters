@@ -1,20 +1,21 @@
 // eslint.config.ts
 import js from "@eslint/js";
-import globals from "globals";
+import prettierConfig from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import globals from "globals";
 import tseslint from "typescript-eslint";
-import prettierConfig from "eslint-config-prettier";
-import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
   {
     ignores: [
+      "build",
       "dist",
       "node_modules",
       "coverage",
-      "build",
+      "reports",
       "*.config.js",
       "eslint.config.ts",
       "vite.config.ts",
@@ -44,21 +45,16 @@ export default [
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-
-      // Prettier
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
       "prettier/prettier": [
         "error",
         {
           semi: true,
         },
       ],
-
-      // React Refresh
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-
-      // TypeScript specific rules
       "no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -67,6 +63,7 @@ export default [
           caughtErrorsIgnorePattern: "^_",
         },
       ],
+      "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/await-thenable": "error",
@@ -103,8 +100,6 @@ export default [
           minimumDescriptionLength: 3,
         },
       ],
-
-      // General best practices
       "no-console": ["warn", { allow: ["warn", "error", "debug", "info"] }],
       eqeqeq: ["error", "always"],
       "prefer-const": "error",
@@ -116,11 +111,9 @@ export default [
       "no-unneeded-ternary": "error",
     },
   },
-  // Disable type-checking rules for JS files
   {
     files: ["**/*.js"],
     ...tseslint.configs.disableTypeChecked,
   },
-  // Apply prettier config last to override any conflicting rules
   prettierConfig,
 ];
