@@ -12,9 +12,17 @@ html {
 
 :root {
   /* Primary Colors */
+  --primary-color-red-light: #ff660d;
   --primary-color-red: #f74b03;
+  --primary-color-red-dark: #a02a0c;
+
+  --primary-color-blue-light: #5997d7;
   --primary-color-blue: #3173b7;
+  --primary-color-blue-dark: #1f4d85;
+
+  --primary-color-yellow-light: #ffeb43;
   --primary-color-yellow: #ffdc20;
+  --primary-color-yellow-dark: #ce9500;
 
   /* Background */
   --background-primary: #f5f5f5;

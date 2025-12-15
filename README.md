@@ -16,48 +16,34 @@ MLH Code Masters is a learning platform designed to help developers enhance thei
 
 ## Building and Running the Application
 
-### Sever
-
-- Navigate to the `server` directory
-- Install dependencies:
-
-   ```bash
-    npm install
-   ```
-
-- Start the development server:
-
-   ```bash
-    npm run dev
-   ```
-
-- The server will run on `http://localhost:5001`
-
-- Run lint and format checks:
-
-    ```bash
-      npm run lint:format
-    ```
-
 ### UI
 
-- Navigate to the `ui` directory
 - Install dependencies
 
-    ```bash
-      npm install
-    ```
+  ```bash
+    npm install
+  ```
 
 - Start the development server:
 
-    ```bash
-      npm start
-    ```
+  ```bash
+    npm start
+  ```
 
 - Open your browser and go to `http://localhost:3000` to access the application.
 
 - Run lint and format checks:
 
-    ```bash
-      npm run lint:format
-    ```
+  ```bash
+    npm run lint:format
+  ```
+
+## Libraries and Frameworks Used
+
+- **Frontend (UI)**:
+  - React
+  - Vite
+  - Zustand
+  - React Router
+  - Axios
+  - IndexedDB with Dexie.js
