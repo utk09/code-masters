@@ -23,7 +23,7 @@
 }
 
 .modal {
-  background: var(--bg-primary);
+  background: var(--background-primary);
   border-radius: var(--radius-lg);
   max-height: 90vh;
   overflow: hidden;
@@ -95,7 +95,7 @@
 }
 
 .closeButton:hover {
-  background: var(--bg-secondary);
+  background: var(--background-secondary);
   color: var(--text-primary);
 }
 
@@ -112,6 +112,6 @@
   gap: var(--spacing-sm);
   justify-content: flex-end;
   padding: var(--spacing-md) var(--spacing-lg);
-  border-top: 1px solid var(--border-color);
-  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color-light);
+  background: var(--background-secondary);
 }
