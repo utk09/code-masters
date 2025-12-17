@@ -6,6 +6,7 @@ import {
   getOrCreateUser,
   markChallengeComplete,
   markResourceComplete,
+  updateUserPoints,
 } from "../db/indexedDBSetup";
 import type { Achievement, Booking, User } from "../types";
 
@@ -25,6 +26,8 @@ type UserState = {
   leaveGuild: () => Promise<void>;
   addAchievement: (achievement: Achievement) => Promise<void>;
   updateProfile: (name: string, avatar?: string) => Promise<void>;
+  completePathwayStep: (pathwayId: string, stepId: string, points: number) => Promise<void>;
+  resetPathway: (pathwayId: string) => Promise<void>;
 };
 
 export const useUserStore = create<UserState>()(
@@ -189,6 +192,54 @@ export const useUserStore = create<UserState>()(
             ...user,
             name,
             avatar,
+          },
+        });
+      },
+
+      completePathwayStep: async (pathwayId: string, stepId: string, points: number) => {
+        const { user } = get();
+        if (!user) return;
+
+        const currentProgress = user.pathwayProgress;
+        const pathwaySteps = currentProgress[pathwayId] ?? [];
+
+        if (pathwaySteps.includes(stepId)) return;
+
+        const newPathwaySteps = [...pathwaySteps, stepId];
+        const newProgress = { ...currentProgress, [pathwayId]: newPathwaySteps };
+
+        await db.users.update(user.id, {
+          pathwayProgress: newProgress,
+        });
+
+        await updateUserPoints(user.id, points, "pathway", `Completed step: ${stepId}`);
+
+        const newPoints = user.points + points;
+        set({
+          user: {
+            ...user,
+            points: newPoints,
+            level: calculateLevel(newPoints),
+            pathwayProgress: newProgress,
+          },
+        });
+      },
+
+      resetPathway: async (pathwayId: string) => {
+        const { user } = get();
+        if (!user) return;
+
+        const currentProgress = user.pathwayProgress;
+        const newProgress = { ...currentProgress, [pathwayId]: [] };
+
+        await db.users.update(user.id, {
+          pathwayProgress: newProgress,
+        });
+
+        set({
+          user: {
+            ...user,
+            pathwayProgress: newProgress,
           },
         });
       },

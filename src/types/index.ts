@@ -11,6 +11,7 @@ export type User = {
   achievements: Achievement[];
   guildId?: string;
   bookings: Booking[];
+  pathwayProgress: Record<string, string[]>; // pathwayId -> completedStepIds
   createdAt: Date;
 };
 
@@ -140,7 +141,7 @@ export type PointsTransaction = {
   id: string;
   userId: string;
   amount: number;
-  type: "challenge" | "resource" | "achievement" | "guild" | "mentorship";
+  type: "challenge" | "resource" | "achievement" | "guild" | "mentorship" | "pathway";
   description: string;
   createdAt: Date;
 };
@@ -157,3 +158,39 @@ export type NavItem = {
 export type DifficultyLevel = "beginner" | "intermediate" | "advanced";
 export type ResourceType = "video" | "article" | "tutorial" | "documentation";
 export type BookingStatus = "confirmed" | "cancelled" | "completed";
+
+// Pathway Types
+export type Pathway = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  steps: PathwayStep[];
+  totalPoints: number;
+};
+
+export type PathwayStep = {
+  id: string;
+  title: string;
+  type: "text" | "video" | "quiz" | "code" | "capstone";
+  content: string | QuizContent | CodeContent | CapstoneContent;
+  points: number;
+};
+
+export type QuizContent = {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+};
+
+export type CodeContent = {
+  description: string;
+  starterCode: string;
+  solution: string;
+  testCase: { input: unknown; expected: unknown };
+};
+
+export type CapstoneContent = {
+  description: string;
+  requirements: string[];
+};

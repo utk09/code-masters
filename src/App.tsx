@@ -6,6 +6,9 @@ import { Challenges } from "./pages/Challenges/Challenges";
 import { Guilds } from "./pages/Guilds/Guilds";
 import { Home } from "./pages/Home/Home";
 import { Mentorship } from "./pages/Mentorship/Mentorship";
+import { PathwayDetail } from "./pages/Pathways/PathwayDetail";
+import { Pathways } from "./pages/Pathways/Pathways";
+import { PathwayStep } from "./pages/Pathways/PathwayStep";
 import { Profile } from "./pages/Profile/Profile";
 import { Resources } from "./pages/Resources/Resources";
 
@@ -15,6 +18,9 @@ function App() {
       <PageLayout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pathways" element={<Pathways />} />
+          <Route path="/pathways/:id" element={<PathwayDetail />} />
+          <Route path="/pathways/:pathwayId/step/:stepId" element={<PathwayStep />} />
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/challenges/:id" element={<ChallengeDetail />} />
           <Route path="/resources" element={<Resources />} />

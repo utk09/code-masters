@@ -4,6 +4,7 @@ import {
   FiCalendar,
   FiCode,
   FiHome,
+  FiMap,
   FiShoppingBag,
   FiUser,
   FiUsers,
@@ -21,6 +22,7 @@ type SidebarProps = {
 
 const navItems = [
   { path: "/", label: "Home", icon: FiHome },
+  { path: "/pathways", label: "Pathways", icon: FiMap },
   { path: "/challenges", label: "Challenges", icon: FiCode },
   { path: "/resources", label: "Resources", icon: FiBookOpen },
   { path: "/mentorship", label: "Mentorship", icon: FiCalendar },

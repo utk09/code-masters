@@ -46,6 +46,7 @@ export async function getOrCreateUser(): Promise<User> {
     achievements: [],
     guildId: undefined,
     bookings: [],
+    pathwayProgress: {},
     createdAt: new Date(),
   };
 
