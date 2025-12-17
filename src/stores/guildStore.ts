@@ -163,7 +163,7 @@ export const useGuildStore = create<GuildState>((set, get) => ({
       if (filter.category && guild.category !== filter.category) {
         return false;
       }
-      if (filter.search) {
+      if (filter.search !== "") {
         const searchLower = filter.search.toLowerCase();
         return (
           guild.name.toLowerCase().includes(searchLower) ||

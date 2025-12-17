@@ -3,7 +3,7 @@ import { FiCheck, FiExternalLink, FiPlay, FiSearch } from "react-icons/fi";
 
 import { Badge, PointsBadge } from "../../components/common/Badge/Badge";
 import { Button } from "../../components/common/Button/Button";
-import { Card, CardBody } from "../../components/common/Card/Card";
+import { Card } from "../../components/common/Card/Card";
 import { Modal } from "../../components/common/Modal/Modal";
 import { PageHeader } from "../../components/layout/PageLayout/PageLayout";
 import { resourceCategories, resources, resourceTypes } from "../../data/resources";
@@ -204,7 +204,11 @@ export function Resources() {
               href={selectedResource?.url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => selectedResource && handleMarkComplete(selectedResource)}
+              onClick={() => {
+                if (selectedResource) {
+                  void handleMarkComplete(selectedResource);
+                }
+              }}
             >
               <Button rightIcon={<FiExternalLink />}>
                 {completedIds.includes(selectedResource?.id || "")

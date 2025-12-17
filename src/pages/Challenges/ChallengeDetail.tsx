@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FiArrowLeft, FiCheck, FiHelpCircle, FiPlay, FiRefreshCw, FiX } from "react-icons/fi";
 import { Link, useParams } from "react-router";
 
@@ -27,29 +27,29 @@ export function ChallengeDetail() {
     showNextHint,
   } = useChallengeStore();
   const { user, completeChallenge } = useUserStore();
-  const [hasAwarded, setHasAwarded] = useState(false);
+  const hasAwarded = useRef(false);
 
   useEffect(() => {
     if (id) {
       setCurrentChallenge(id);
-      setHasAwarded(false);
+      hasAwarded.current = false;
     }
   }, [id, setCurrentChallenge]);
 
   useEffect(() => {
-    if (isPassed && !hasAwarded && currentChallenge && user) {
+    if (isPassed && !hasAwarded.current && currentChallenge && user) {
       const alreadyCompleted = user.completedChallenges.includes(currentChallenge.id);
       if (!alreadyCompleted) {
-        completeChallenge(currentChallenge.id, currentChallenge.points);
-        confetti({
+        void completeChallenge(currentChallenge.id, currentChallenge.points);
+        void confetti({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
         });
       }
-      setHasAwarded(true);
+      hasAwarded.current = true;
     }
-  }, [isPassed, hasAwarded, currentChallenge, user, completeChallenge]);
+  }, [isPassed, currentChallenge, user, completeChallenge]);
 
   if (!currentChallenge) {
     return (
@@ -102,7 +102,12 @@ export function ChallengeDetail() {
                   >
                     Reset
                   </Button>
-                  <Button size="sm" leftIcon={<FiPlay />} onClick={runTests} isLoading={isRunning}>
+                  <Button
+                    size="sm"
+                    leftIcon={<FiPlay />}
+                    onClick={() => void runTests()}
+                    isLoading={isRunning}
+                  >
                     Run Tests
                   </Button>
                 </div>
@@ -137,11 +142,11 @@ export function ChallengeDetail() {
                           {result.passed ? <FiCheck /> : <FiX />}
                         </span>
                         <div className={styles.testInfo}>
-                          <span className={styles.testName}>{test?.description}</span>
+                          <span className={styles.testName}>{test.description}</span>
                           {result.error && <span className={styles.testError}>{result.error}</span>}
                           {!result.passed && !result.error && (
                             <span className={styles.testError}>
-                              Expected: {JSON.stringify(test?.expectedOutput)}, Got:{" "}
+                              Expected: {JSON.stringify(test.expectedOutput)}, Got:{" "}
                               {JSON.stringify(result.actualOutput)}
                             </span>
                           )}

@@ -136,7 +136,7 @@ export function Guilds() {
                     variant="outline"
                     fullWidth
                     leftIcon={<FiLogOut />}
-                    onClick={() => handleLeaveGuild(guild.id)}
+                    onClick={() => void handleLeaveGuild(guild.id)}
                   >
                     Leave Guild
                   </Button>
@@ -144,7 +144,7 @@ export function Guilds() {
                   <Button
                     fullWidth
                     leftIcon={<FiLogIn />}
-                    onClick={() => handleJoinGuild(guild.id)}
+                    onClick={() => void handleJoinGuild(guild.id)}
                     disabled={user?.guildId !== undefined}
                   >
                     {user?.guildId ? "Leave current guild first" : "Join Guild"}
@@ -175,7 +175,10 @@ export function Guilds() {
             <Button variant="ghost" onClick={() => setShowCreateModal(false)}>
               Cancel
             </Button>
-            <Button onClick={handleCreateGuild} disabled={newGuildName.trim().length === 0}>
+            <Button
+              onClick={() => void handleCreateGuild()}
+              disabled={newGuildName.trim().length === 0}
+            >
               Create Guild
             </Button>
           </div>

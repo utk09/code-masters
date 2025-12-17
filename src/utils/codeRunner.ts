@@ -21,6 +21,7 @@ export async function runTests(code: string, tests: TestCase[]): Promise<RunResu
   return { results, allPassed, executionTime };
 }
 
+// eslint-disable-next-line @typescript-eslint/require-await
 async function runSingleTest(code: string, test: TestCase): Promise<TestResult> {
   try {
     const wrappedCode = `
@@ -30,6 +31,7 @@ async function runSingleTest(code: string, test: TestCase): Promise<TestResult> 
 
     // eslint-disable-next-line @typescript-eslint/no-implied-eval
     const func = new Function(wrappedCode);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const actualOutput = func();
 
     const passed = JSON.stringify(actualOutput) === JSON.stringify(test.expectedOutput);

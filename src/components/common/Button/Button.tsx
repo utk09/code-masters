@@ -40,10 +40,10 @@ export function Button({
 
   return (
     <button className={buttonClasses} disabled={disabled || isLoading} {...props}>
-      {isLoading && <span className={styles.spinner} />}
-      {!isLoading && leftIcon && <span className={styles.leftIcon}>{leftIcon}</span>}
+      {isLoading ? <span className={styles.spinner} /> : null}
+      {!isLoading && leftIcon ? <span className={styles.leftIcon}>{leftIcon}</span> : null}
       <span className={styles.content}>{children}</span>
-      {!isLoading && rightIcon && <span className={styles.rightIcon}>{rightIcon}</span>}
+      {!isLoading && rightIcon ? <span className={styles.rightIcon}>{rightIcon}</span> : null}
     </button>
   );
 }

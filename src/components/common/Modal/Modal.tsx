@@ -66,7 +66,7 @@ export function Modal({
           </div>
         )}
         <div className={styles.content}>{children}</div>
-        {footer && <div className={styles.footer}>{footer}</div>}
+        {footer ? <div className={styles.footer}>{footer}</div> : null}
       </div>
     </div>,
     document.body,

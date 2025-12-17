@@ -61,7 +61,7 @@ export function Mentorship() {
   const groupSlotsByDate = (slots: TimeSlot[]) => {
     const grouped: Record<string, TimeSlot[]> = {};
     slots.forEach((slot) => {
-      if (!grouped[slot.date]) {
+      if (grouped[slot.date] === undefined) {
         grouped[slot.date] = [];
       }
       grouped[slot.date].push(slot);
@@ -175,7 +175,10 @@ export function Mentorship() {
               <Button variant="ghost" onClick={() => setSelectedSlot(null)}>
                 Back
               </Button>
-              <Button onClick={handleBookSession} disabled={bookingTopic.trim().length === 0}>
+              <Button
+                onClick={() => void handleBookSession()}
+                disabled={bookingTopic.trim().length === 0}
+              >
                 Confirm Booking
               </Button>
             </div>

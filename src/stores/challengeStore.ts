@@ -76,6 +76,7 @@ export const useChallengeStore = create<ChallengeState>((set, get) => ({
 
         // eslint-disable-next-line @typescript-eslint/no-implied-eval
         const func = new Function(wrappedCode);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         const actualOutput = func();
 
         const passed = JSON.stringify(actualOutput) === JSON.stringify(test.expectedOutput);
@@ -144,7 +145,7 @@ export const useChallengeStore = create<ChallengeState>((set, get) => ({
       if (filter.category && challenge.category !== filter.category) {
         return false;
       }
-      if (filter.search) {
+      if (filter.search !== "") {
         const searchLower = filter.search.toLowerCase();
         return (
           challenge.title.toLowerCase().includes(searchLower) ||

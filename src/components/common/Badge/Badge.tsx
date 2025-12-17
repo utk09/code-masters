@@ -26,7 +26,7 @@ export function Badge({
 
   return (
     <span className={badgeClasses}>
-      {icon && <span className={styles.icon}>{icon}</span>}
+      {icon ? <span className={styles.icon}>{icon}</span> : null}
       {children}
     </span>
   );

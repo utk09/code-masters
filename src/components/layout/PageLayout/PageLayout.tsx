@@ -14,7 +14,7 @@ export function PageLayout({ children }: PageLayoutProps) {
   const { initUser, isLoading } = useUserStore();
 
   useEffect(() => {
-    initUser();
+    void initUser();
   }, [initUser]);
 
   if (isLoading) {
@@ -48,7 +48,7 @@ export function PageHeader({ title, subtitle, action }: PageHeaderProps) {
         <h1 className={styles.pageTitle}>{title}</h1>
         {subtitle && <p className={styles.pageSubtitle}>{subtitle}</p>}
       </div>
-      {action && <div className={styles.pageHeaderAction}>{action}</div>}
+      {action ? <div className={styles.pageHeaderAction}>{action}</div> : null}
     </div>
   );
 }

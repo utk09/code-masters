@@ -37,13 +37,13 @@ export function CardHeader({ title, subtitle, action, icon }: CardHeaderProps) {
   return (
     <div className={styles.header}>
       <div className={styles.headerContent}>
-        {icon && <div className={styles.headerIcon}>{icon}</div>}
+        {icon ? <div className={styles.headerIcon}>{icon}</div> : null}
         <div className={styles.headerText}>
           <h3 className={styles.title}>{title}</h3>
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+          {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
         </div>
       </div>
-      {action && <div className={styles.headerAction}>{action}</div>}
+      {action ? <div className={styles.headerAction}>{action}</div> : null}
     </div>
   );
 }
