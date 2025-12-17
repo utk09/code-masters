@@ -83,7 +83,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div className={styles.footer}>
           <ThemeToggle />
           <p className={styles.mlhBranding}>
-            Powered by <strong>MLH</strong>
+            Powered by{" "}
+            <strong>
+              <a href="https://mlh.io" target="_blank" rel="noopener noreferrer">
+                MLH
+              </a>
+            </strong>
           </p>
         </div>
       </aside>
