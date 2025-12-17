@@ -38,7 +38,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     <>
       {isOpen && <div className={styles.overlay} onClick={onClose} />}
 
-      <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
+      <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`} data-testid="sidebar">
         <div className={styles.header}>
           <span className={styles.title}>Navigation</span>
           <button className={styles.closeButton} onClick={onClose} aria-label="Close menu">

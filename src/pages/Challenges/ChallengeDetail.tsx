@@ -65,7 +65,7 @@ export function ChallengeDetail() {
   const isCompleted = user?.completedChallenges.includes(currentChallenge.id);
 
   return (
-    <div className={styles.detail}>
+    <div className={styles.detail} data-testid="challenge-detail-page">
       <Link to="/challenges" className={styles.backLink}>
         <FiArrowLeft />
         Back to Challenges

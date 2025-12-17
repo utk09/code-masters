@@ -39,7 +39,12 @@ export function Button({
     .join(" ");
 
   return (
-    <button className={buttonClasses} disabled={disabled || isLoading} {...props}>
+    <button
+      className={buttonClasses}
+      disabled={disabled || isLoading}
+      data-testid="button"
+      {...props}
+    >
       {isLoading ? <span className={styles.spinner} /> : null}
       {!isLoading && leftIcon ? <span className={styles.leftIcon}>{leftIcon}</span> : null}
       <span className={styles.content}>{children}</span>

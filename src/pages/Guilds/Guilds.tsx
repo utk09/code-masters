@@ -54,7 +54,7 @@ export function Guilds() {
   };
 
   return (
-    <div className={styles.guilds}>
+    <div className={styles.guilds} data-testid="guilds-page">
       <PageHeader
         title="Guilds"
         subtitle="Join communities of developers with shared interests"

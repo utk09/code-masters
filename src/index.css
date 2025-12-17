@@ -104,6 +104,8 @@ html {
   --bg-secondary: var(--background-secondary);
   --bg-tertiary: var(--border-color-light);
   --border-color: var(--border-color-light);
+
+  --profile-name-color: var(--primary-color-yellow-dark);
 }
 
 [data-theme="dark"] {
@@ -116,6 +118,7 @@ html {
   --border-color-dark: #555555;
 
   --primary-color-red: #ff660d;
+  --profile-name-color: var(--primary-color-yellow);
 }
 
 body {

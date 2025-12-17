@@ -55,8 +55,12 @@ export function Modal({
   };
 
   return createPortal(
-    <div className={styles.overlay} onClick={handleOverlayClick}>
-      <div className={`${styles.modal} ${styles[size]}`} onClick={(e) => e.stopPropagation()}>
+    <div className={styles.overlay} onClick={handleOverlayClick} data-testid="modal-overlay">
+      <div
+        className={`${styles.modal} ${styles[size]}`}
+        onClick={(e) => e.stopPropagation()}
+        data-testid="modal"
+      >
         {title && (
           <div className={styles.header}>
             <h2 className={styles.title}>{title}</h2>

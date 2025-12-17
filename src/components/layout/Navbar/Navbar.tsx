@@ -13,7 +13,7 @@ export function Navbar({ onMenuClick }: NavbarProps) {
   const { user } = useUserStore();
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} data-testid="navbar">
       <div className={styles.left}>
         <button className={styles.menuButton} onClick={onMenuClick} aria-label="Open menu">
           <FiMenu size={24} />

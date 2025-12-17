@@ -6,9 +6,9 @@ import styles from "./ThemeToggle.module.css";
 export function ThemeToggle() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
+      return localStorage.getItem("theme") || "dark";
     }
-    return "light";
+    return "dark";
   });
 
   useEffect(() => {
@@ -21,7 +21,12 @@ export function ThemeToggle() {
   };
 
   return (
-    <button className={styles.toggle} onClick={toggleTheme} aria-label="Toggle theme">
+    <button
+      className={styles.toggle}
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      data-testid="theme-toggle"
+    >
       {theme === "light" ? <FiMoon /> : <FiSun />}
       <span className={styles.label}>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
     </button>

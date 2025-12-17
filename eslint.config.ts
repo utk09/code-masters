@@ -54,7 +54,6 @@ export default [
         },
       ],
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-      "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -69,7 +68,7 @@ export default [
       "@typescript-eslint/await-thenable": "error",
       "@typescript-eslint/no-unnecessary-condition": "warn",
       "@typescript-eslint/strict-boolean-expressions": [
-        "warn",
+        "off",
         {
           allowString: false,
           allowNumber: false,

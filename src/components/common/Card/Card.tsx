@@ -20,7 +20,7 @@ export function Card({
     .join(" ");
 
   return (
-    <div className={cardClasses} {...props}>
+    <div className={cardClasses} data-testid="card" {...props}>
       {children}
     </div>
   );
@@ -35,7 +35,7 @@ type CardHeaderProps = {
 
 export function CardHeader({ title, subtitle, action, icon }: CardHeaderProps) {
   return (
-    <div className={styles.header}>
+    <div className={styles.header} data-testid="card-header">
       <div className={styles.headerContent}>
         {icon ? <div className={styles.headerIcon}>{icon}</div> : null}
         <div className={styles.headerText}>
@@ -54,7 +54,11 @@ type CardBodyProps = {
 };
 
 export function CardBody({ children, className = "" }: CardBodyProps) {
-  return <div className={`${styles.body} ${className}`}>{children}</div>;
+  return (
+    <div className={`${styles.body} ${className}`} data-testid="card-body">
+      {children}
+    </div>
+  );
 }
 
 type CardFooterProps = {
@@ -63,5 +67,9 @@ type CardFooterProps = {
 };
 
 export function CardFooter({ children, align = "right" }: CardFooterProps) {
-  return <div className={`${styles.footer} ${styles[`align-${align}`]}`}>{children}</div>;
+  return (
+    <div className={`${styles.footer} ${styles[`align-${align}`]}`} data-testid="card-footer">
+      {children}
+    </div>
+  );
 }

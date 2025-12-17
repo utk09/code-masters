@@ -64,7 +64,7 @@ export function Resources() {
   };
 
   return (
-    <div className={styles.resources}>
+    <div className={styles.resources} data-testid="resources-page">
       <PageHeader
         title="Resource Library"
         subtitle="Curated tutorials, videos, and articles to accelerate your learning"

@@ -27,7 +27,7 @@ export function PageLayout({ children }: PageLayoutProps) {
   }
 
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout} data-testid="page-layout">
       <Navbar onMenuClick={() => setSidebarOpen(true)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <main className={styles.main}>{children}</main>
@@ -43,7 +43,7 @@ type PageHeaderProps = {
 
 export function PageHeader({ title, subtitle, action }: PageHeaderProps) {
   return (
-    <div className={styles.pageHeader}>
+    <div className={styles.pageHeader} data-testid="page-header">
       <div className={styles.pageHeaderContent}>
         <h1 className={styles.pageTitle}>{title}</h1>
         {subtitle && <p className={styles.pageSubtitle}>{subtitle}</p>}
@@ -61,7 +61,7 @@ type PageSectionProps = {
 
 export function PageSection({ title, children, className = "" }: PageSectionProps) {
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} ${className}`} data-testid="page-section">
       {title && <h2 className={styles.sectionTitle}>{title}</h2>}
       {children}
     </section>

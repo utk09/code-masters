@@ -18,7 +18,7 @@ export function Home() {
   const featuredResources = resources.filter((r) => r.type === "video").slice(0, 4);
 
   return (
-    <div className={styles.home}>
+    <div className={styles.home} data-testid="home-page">
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>

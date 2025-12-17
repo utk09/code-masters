@@ -38,7 +38,7 @@ export function Profile() {
   ];
 
   return (
-    <div className={styles.profile}>
+    <div className={styles.profile} data-testid="profile-page">
       <PageHeader title="Your Profile" subtitle="Track your learning progress and achievements" />
 
       <div className={styles.layout}>

@@ -35,7 +35,7 @@ export function ProgressBar({
   const barClasses = [styles.bar, styles[variant]].filter(Boolean).join(" ");
 
   return (
-    <div className={progressClasses}>
+    <div className={progressClasses} data-testid="progress-bar">
       {(showLabel || label) && (
         <div className={styles.labelContainer}>
           <span className={styles.label}>{label}</span>
@@ -62,7 +62,7 @@ export function LevelProgress({ currentPoints, level, nextLevelPoints }: LevelPr
   const pointsNeeded = nextLevelPoints - currentThreshold;
 
   return (
-    <div className={styles.levelProgress}>
+    <div className={styles.levelProgress} data-testid="level-progress">
       <div className={styles.levelInfo}>
         <span className={styles.levelLabel}>Level {level}</span>
         <span className={styles.pointsLabel}>

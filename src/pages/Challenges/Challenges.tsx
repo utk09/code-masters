@@ -22,7 +22,7 @@ export function Challenges() {
   const difficulties = ["beginner", "intermediate", "advanced"] as const;
 
   return (
-    <div className={styles.challenges}>
+    <div className={styles.challenges} data-testid="challenges-page">
       <PageHeader
         title="Coding Challenges"
         subtitle={`${challenges.length} challenges available - Complete them to earn points!`}

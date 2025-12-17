@@ -72,7 +72,7 @@ export function Mentorship() {
   const groupedSlots = groupSlotsByDate(availableSlots);
 
   return (
-    <div className={styles.mentorship}>
+    <div className={styles.mentorship} data-testid="mentorship-page">
       <PageHeader title="Mentorship" subtitle="Book 1-on-1 sessions with experienced developers" />
 
       <div className={styles.controls}>

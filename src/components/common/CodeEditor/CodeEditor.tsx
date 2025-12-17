@@ -20,7 +20,7 @@ export function CodeEditor({
   theme = "vs-dark",
 }: CodeEditorProps) {
   return (
-    <div className={styles.container} style={{ height }}>
+    <div className={styles.container} style={{ height }} data-testid="code-editor">
       <Editor
         height="100%"
         language={language}

@@ -25,7 +25,7 @@ export function Badge({
     .join(" ");
 
   return (
-    <span className={badgeClasses}>
+    <span className={badgeClasses} data-testid="badge">
       {icon ? <span className={styles.icon}>{icon}</span> : null}
       {children}
     </span>
