@@ -1,0 +1,66 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Variants */
+.default {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.primary {
+  background: rgba(247, 75, 3, 0.15);
+  color: var(--primary-color-red);
+}
+
+.secondary {
+  background: rgba(49, 115, 183, 0.15);
+  color: var(--primary-color-blue);
+}
+
+.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success-color);
+}
+
+.warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning-color);
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error-color);
+}
+
+.info {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--info-color);
+}
+
+/* Sizes */
+.sm {
+  padding: 2px var(--spacing-xs);
+  font-size: var(--font-size-xs);
+}
+
+.md {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.lg {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}

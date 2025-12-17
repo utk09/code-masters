@@ -1,0 +1,124 @@
+.container {
+  width: 100%;
+}
+
+/* Track */
+.track {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+/* Bar */
+.bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow) ease-out;
+}
+
+/* Sizes */
+.sm .track {
+  height: 6px;
+}
+
+.md .track {
+  height: 10px;
+}
+
+.lg .track {
+  height: 14px;
+}
+
+/* Variants */
+.default {
+  background: var(--primary-color-blue);
+}
+
+.success {
+  background: var(--success-color);
+}
+
+.warning {
+  background: var(--warning-color);
+}
+
+.error {
+  background: var(--error-color);
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--primary-color-red) 0%, var(--primary-color-yellow) 100%);
+}
+
+/* Animation */
+.animated .bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated .bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Label */
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.percentage {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+/* Level Progress */
+.levelProgress {
+  width: 100%;
+}
+
+.levelInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.levelLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color-red);
+}
+
+.pointsLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}

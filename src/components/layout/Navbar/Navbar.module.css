@@ -1,0 +1,152 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 var(--spacing-lg);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.menuButton:hover {
+  background: var(--bg-secondary);
+}
+
+@media (min-width: 1024px) {
+  .menuButton {
+    display: none;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 36px;
+  width: auto;
+}
+
+.logoText {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color-red);
+}
+
+@media (max-width: 640px) {
+  .logoText {
+    display: none;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.points {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: rgba(247, 75, 3, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.pointsIcon {
+  color: var(--primary-color-yellow);
+}
+
+.pointsValue {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color-red);
+}
+
+.pointsLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.profile:hover {
+  background: var(--bg-secondary);
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .profileInfo {
+    display: none;
+  }
+}
+
+.profileName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.profileLevel {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
