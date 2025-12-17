@@ -201,7 +201,7 @@ export const useUserStore = create<UserState>()(
         if (!user) return;
 
         const currentProgress = user.pathwayProgress;
-        const pathwaySteps = currentProgress[pathwayId] ?? [];
+        const pathwaySteps = currentProgress[pathwayId] || [];
 
         if (pathwaySteps.includes(stepId)) return;
 
