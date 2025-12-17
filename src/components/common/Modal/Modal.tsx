@@ -60,7 +60,7 @@ export function Modal({
         {title && (
           <div className={styles.header}>
             <h2 className={styles.title}>{title}</h2>
-            <button className={styles.closeButton} onClick={onClose}>
+            <button className={styles.closeButton} onClick={onClose} aria-label="Close modal">
               <FiX size={20} />
             </button>
           </div>

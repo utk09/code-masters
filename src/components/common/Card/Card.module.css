@@ -1,5 +1,6 @@
 .card {
   background: var(--bg-primary);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
@@ -20,7 +21,7 @@
 }
 
 .interactive {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   cursor: pointer;
   transition: all var(--transition-fast);
 }

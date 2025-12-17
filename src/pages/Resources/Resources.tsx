@@ -162,7 +162,7 @@ export function Resources() {
                   </Badge>
                   <PointsBadge points={resource.points} size="sm" />
                 </div>
-                <h3 className={styles.title}>{resource.title}</h3>
+                <h2 className={styles.title}>{resource.title}</h2>
                 <p className={styles.description}>{resource.description}</p>
                 <div className={styles.footer}>
                   <span className={styles.category}>{resource.category}</span>

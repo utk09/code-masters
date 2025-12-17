@@ -11,6 +11,7 @@ import {
 } from "react-icons/fi";
 import { NavLink } from "react-router";
 
+import { ThemeToggle } from "../../common/ThemeToggle/ThemeToggle";
 import styles from "./Sidebar.module.css";
 
 type SidebarProps = {
@@ -40,7 +41,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
         <div className={styles.header}>
           <span className={styles.title}>Navigation</span>
-          <button className={styles.closeButton} onClick={onClose}>
+          <button className={styles.closeButton} onClick={onClose} aria-label="Close menu">
             <FiX size={20} />
           </button>
         </div>
@@ -78,6 +79,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </nav>
 
         <div className={styles.footer}>
+          <ThemeToggle />
           <p className={styles.mlhBranding}>
             Powered by <strong>MLH</strong>
           </p>

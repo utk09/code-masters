@@ -15,7 +15,7 @@ export function Navbar({ onMenuClick }: NavbarProps) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.left}>
-        <button className={styles.menuButton} onClick={onMenuClick}>
+        <button className={styles.menuButton} onClick={onMenuClick} aria-label="Open menu">
           <FiMenu size={24} />
         </button>
         <Link to="/" className={styles.logo}>
